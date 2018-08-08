@@ -1,6 +1,8 @@
 <?php 
 // Utilizando Padrão Singleton
 class Core {
+
+	private $config;
 	
 	private function __construct(){}
 
@@ -10,6 +12,14 @@ class Core {
 			$inst new Core();
 		}
 		return $inst;
+	}
+
+	public function run($cfg){
+		$this->config = $cfg;
+	}
+
+	public function getConfig($name){
+		return $this->config[$name];
 	}
 }
 
