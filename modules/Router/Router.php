@@ -3,6 +3,9 @@
  * 
  */
 class Router {
+
+	private $get;
+	private $post;
 	
 	private function __construct() {}
 
@@ -15,13 +18,27 @@ class Router {
 	}
 
 	public function load(){
+		$this->loadRouteFile('default');
 
+		return $this;
 	}
 
 	public function loadRouteFile($f){
 		if(file_exists('routes/'.$f.'.php')){
 			require 'routes/'.$f.'.php';
 		}
+	}
+
+	public function match(){
+
+	}
+
+	public function get($pattern, $function){
+		$this->get[$pattern] = $function;
+	}
+
+	public function post(){
+		$this->get[$pattern] = $function;
 	}
 
 }
