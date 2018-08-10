@@ -16,7 +16,7 @@ class Core {
 
 	public function run($cfg){
 		$this->config = $cfg;
-		$this->loadModule('router');
+		$this->loadModule('router')->load();
 
 	}
 
@@ -25,9 +25,14 @@ class Core {
 	}
 
 	public function loadModule($moduleName){
+		try {
 		$moduleName = ucfirst(strtolower($moduleName));
 		$module = $moduleName::getInstance();
+		return $module;
+	} catch(Exeption $e){
+		die($e->getMessage());
 	}
+}
 }
 
  ?>

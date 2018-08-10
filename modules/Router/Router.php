@@ -14,6 +14,16 @@ class Router {
 		return $inst;
 	}
 
+	public function load(){
+
+	}
+
+	public function loadRouteFile($f){
+		if(file_exists('routes/'.$f.'.php')){
+			require 'routes/'.$f.'.php';
+		}
+	}
+
 }
 
 
