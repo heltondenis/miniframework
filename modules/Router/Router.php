@@ -45,9 +45,7 @@ class Router {
 		// Loop em todos os routes
 		foreach ($type as $pt => $func) {
 			$pattern = preg_replace('(\{[a-z0-9]{0,}\})', '([a-z0-9]{0,})', $pt);
-			echo "Padrão: ".$pattern;
-
-			echo "<hr/>";
+			
 		}
 	}
 
