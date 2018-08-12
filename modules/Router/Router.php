@@ -31,7 +31,24 @@ class Router {
 
 	public function match(){
 		$url = ((isset($_GET['url']))?$_GET['url']:'');
-		echo "URL: ".$url;
+		
+		switch ($_SERVER['REQUEST_METHOD']) {
+			case 'GET':
+			default:
+				$type = $this->get;
+				break;
+			case 'POST':
+				$type = $this->post;
+				break;
+		}
+
+		// Loop em todos os routes
+		foreach ($type as $pt => $func) {
+			$pattern = preg_replace('(\{[a-z0-9]{0,}\})', '([a-z0-9]{0,})', $pt);
+			echo "Padrão: ".$pattern;
+
+			echo "<hr/>";
+		}
 	}
 
 	public function get($pattern, $function){
