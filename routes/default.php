@@ -1,5 +1,6 @@
 <?php 
 
-$this->get('', function($arg){
+$this->get('', function(){
 	echo 'home';
 });
+

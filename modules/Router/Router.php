@@ -12,7 +12,7 @@ class Router {
 	public static function getInstance(){
 		static $inst = null;
 		if ($inst === null) {
-			$inst new Router();
+			$inst = new Router();
 		}
 		return $inst;
 	}
@@ -30,7 +30,8 @@ class Router {
 	}
 
 	public function match(){
-
+		$url = ((isset($_GET['url']))?$_GET['url']:'');
+		echo "URL: ".$url;
 	}
 
 	public function get($pattern, $function){

@@ -9,7 +9,7 @@ class Core {
 	public static function getInstance(){
 		static $inst = null;
 		if ($inst === null) {
-			$inst new Core();
+			$inst = new Core();
 		}
 		return $inst;
 	}
