@@ -46,6 +46,9 @@ class Router {
 		foreach ($type as $pt => $func) {
 			$pattern = preg_replace('(\{[a-z0-9]{0,}\})', '([a-z0-9]{0,})', $pt);
 			
+			if (preg_match('#^('.$pattern.')*$#i', $url, $matches)) {
+				
+			}
 		}
 	}
 
